@@ -1,17 +1,18 @@
-% module simplelib
+%module simplelib
 
-    %
-    {
+%{
 #include "simpleclass.h"
-        % }
+%}
 
-    % include<typemaps.i> % include "std_string.i" % include "std_vector.i"
+%include<typemaps.i>
+%include "std_string.i"
+%include "std_vector.i"
 
-    % feature("autodoc", "1");
+%feature("autodoc", "1");
 
 namespace std {
-% template(StringVector) vector<string>;
-% template(ByteVector) vector<char>;
+%template(StringVector) vector<string>;
+%template(ByteVector) vector<char>;
 }
 
-% include "simpleclass.h"
+%include "simpleclass.h"
