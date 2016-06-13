@@ -1,7 +1,7 @@
 package simplelib_test
 
 import (
-	"github.com/zacg/simplelib"
+	"github.com/derphilipp/go-raspicam"
 	"io/ioutil"
 	"testing"
 )

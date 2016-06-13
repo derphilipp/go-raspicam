@@ -5,7 +5,6 @@
 #include <tuple>
 #include <vector>
 
-#include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
@@ -13,12 +12,12 @@ class StoveCam {
 public:
   StoveCam();
 
+  std::tuple<unsigned char *, int, int> nextPicture();
+
+private:
   std::tuple<unsigned char *, int> getCutout();
   cv::Mat takeCroppedImage();
   std::tuple<unsigned char *, int> getImageAsPng(cv::Mat &);
-  std::tuple<unsigned char *, int, int> get();
-
-private:
   cv::VideoCapture cap{0};
   int imagesize = 0;
   cv::Mat takeImage();

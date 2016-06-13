@@ -7,7 +7,7 @@ using namespace std;
 using namespace cv;
 
 Simpleclass::Simpleclass() {
-  tuple<unsigned char *, int, int> result = stovecam.get();
+  tuple<unsigned char *, int, int> result = stovecam.nextPicture();
   image_data = get<0>(result);
   image_data_length = get<1>(result);
   bright_pixels = get<2>(result);

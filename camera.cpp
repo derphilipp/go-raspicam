@@ -2,17 +2,15 @@
 #define CAMERA_CPP
 
 #include "camera.h"
-#include <ctime>
 using namespace cv;
 using namespace std;
 
-tuple<unsigned char *, int, int> StoveCam::get() {
+tuple<unsigned char *, int, int> StoveCam::nextPicture() {
   auto img = takeImage();
   auto cropped_img = cropImage(img);
   auto image_as_png = getImageAsPng(cropped_img);
   int brightPixels = countBrightPixels(cropped_img);
-  return make_tuple(std::get<0>(image_as_png), std::get<1>(image_as_png),
-                    brightPixels);
+  return {std::get<0>(image_as_png), std::get<1>(image_as_png), brightPixels};
 }
 
 Mat StoveCam::takeImage() {
@@ -75,7 +73,7 @@ tuple<unsigned char *, int> StoveCam::getImageAsPng(Mat &image) {
   auto imageBuf = (unsigned char *)malloc(bufsize);
   // auto imageBuf = (unsigned char *) realloc(imageBuf, buf.size());
   memcpy(imageBuf, &buf[0], bufsize);
-  return make_tuple(imageBuf, bufsize);
+  return {imageBuf, bufsize};
 }
 
 tuple<unsigned char *, int> StoveCam::getCutout() {

@@ -1,6 +1,6 @@
 #ifndef SIMPLECLASS_H
 #define SIMPLECLASS_H
-// File name: main_capture_class.h
+
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
