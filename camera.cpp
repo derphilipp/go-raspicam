@@ -12,7 +12,7 @@ tuple<unsigned char *, int, int> StoveCam::get() {
   auto image_as_png = getImageAsPng(cropped_img);
   int brightPixels = countBrightPixels(cropped_img);
   return make_tuple(std::get<0>(image_as_png), std::get<1>(image_as_png),
-                         brightPixels);
+                    brightPixels);
 }
 
 Mat StoveCam::takeImage() {
@@ -25,16 +25,15 @@ Mat StoveCam::takeImage() {
   return frame;
 }
 
-StoveCam::StoveCam(){
+StoveCam::StoveCam() {
   cap.set(CV_CAP_PROP_FRAME_WIDTH, 2592);
   cap.set(CV_CAP_PROP_FRAME_HEIGHT, 1944);
   assert(cap.isOpened());
-
 }
 
 Mat StoveCam::cropImage(Mat &image) {
   // Setup a rectangle to define your region of interest
-  Rect myROI(1182, 1287, 20, 20); //0, 0, 2592, 1944);
+  Rect myROI(1182, 1287, 20, 20); // 0, 0, 2592, 1944);
   Mat croppedRef(image, myROI);
   Mat cropped;
   croppedRef.copyTo(cropped);
