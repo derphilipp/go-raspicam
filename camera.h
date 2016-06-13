@@ -11,7 +11,7 @@
 
 class StoveCam {
 public:
-  StoveCam(){};
+  StoveCam();
 
   std::tuple<unsigned char *, int> getCutout();
   cv::Mat takeCroppedImage();
@@ -19,6 +19,7 @@ public:
   std::tuple<unsigned char *, int, int> get();
 
 private:
+  cv::VideoCapture cap{0};
   int imagesize = 0;
   cv::Mat takeImage();
 
