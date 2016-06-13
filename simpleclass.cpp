@@ -6,24 +6,17 @@
 using namespace std;
 using namespace cv;
 
-Simpleclass::Simpleclass(){
-     tuple<unsigned char*, int, int> result = stovecam.get();
-     image_data = get<0> (result);
-     image_data_length = get<1> (result);
-     bright_pixels = get<2> (result);
+Simpleclass::Simpleclass() {
+  tuple<unsigned char *, int, int> result = stovecam.get();
+  image_data = get<0>(result);
+  image_data_length = get<1>(result);
+  bright_pixels = get<2>(result);
 }
 
-unsigned char * Simpleclass::getImage(){
-    return image_data;
-}
+unsigned char *Simpleclass::getImage() { return image_data; }
 
-int Simpleclass::getImageLength(){
-    return image_data_length;
-}
+int Simpleclass::getImageLength() { return image_data_length; }
 
-int Simpleclass::getBrightPixels(){
-    return bright_pixels;
-}
-
+int Simpleclass::getBrightPixels() { return bright_pixels; }
 
 #endif

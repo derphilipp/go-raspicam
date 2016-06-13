@@ -8,17 +8,17 @@
 #include <tuple>
 
 class Simpleclass {
-    public:
-        Simpleclass();
-        unsigned char *getImage();
-        int getImageLength();
-        int getBrightPixels();
-    private:
-        StoveCam stovecam;
-        unsigned char * image_data;
-        int image_data_length;
-        int bright_pixels;
+public:
+  Simpleclass();
+  unsigned char *getImage();
+  int getImageLength();
+  int getBrightPixels();
 
+private:
+  StoveCam stovecam;
+  unsigned char *image_data;
+  int image_data_length;
+  int bright_pixels;
 };
 
 #endif
